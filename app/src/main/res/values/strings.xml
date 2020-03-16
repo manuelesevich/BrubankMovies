@@ -3,4 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading_animation_path">M 0,0 l 17,0 0,17 -17,0 0,-17
+                            M 20,0 l 17,0 0,17 -17,0 0,-17
+                            M 40,0 l 17,0 0,17 -17,0 0,-17
+                            M 40,20 l 17,0 0,17 -17,0 0,-17
+                            M 40,40 l 17,0 0,17 -17,0 0,-17
+                            M 20,40 l 17,0 0,17 -17,0 0,-17
+                            M 0,40 l 17,0 0,17 -17,0 0,-17
+                            M 0,20 l 17,0 0,17 -17,0 0,-17</string>
 </resources>

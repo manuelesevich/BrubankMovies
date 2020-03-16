@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/detailScreenFragment">
+    app:startDestination="@id/mainScreenFragment">
 
     <fragment
         android:id="@+id/mainScreenFragment"
@@ -18,5 +18,9 @@
         android:id="@+id/detailScreenFragment"
         android:name="com.example.brubankmovies.detailScreen.DetailScreenFragment"
         android:label="fragment_detail_screen"
-        tools:layout="@layout/fragment_detail_screen" />
+        tools:layout="@layout/fragment_detail_screen" >
+        <argument
+            android:name="selectedMovie"
+            app:argType="com.example.brubankmovies.network.Movie"/>
+    </fragment>
 </navigation>

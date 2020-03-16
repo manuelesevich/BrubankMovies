@@ -1,20 +1,22 @@
 package com.example.brubankmovies.network
 
 import android.os.Parcelable
-import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
+// TODO ver si las URL no tiran null
 @Parcelize
 class Movie(
     val id: Int,
     val title: String,
-    @Json(name = "overiew") val synopsis: String,
+    val overview: String,
     val backdrop_path: String,
+    val backdropUrl:String = "https://image.tmdb.org/t/p/original$backdrop_path",
     val poster_path: String,
-    val genreIds: List<Int>
+    val posterUrl: String = "https://image.tmdb.org/t/p/original$poster_path",
+    val genre_ids: List<Int>
 ):Parcelable {
 
-    val genreType get() = when(genreIds[0]) {
+    val genreType get() = when(genre_ids[0]) {
         28 -> "Action"
         12 -> "Adventure"
         16 -> "Animation"
