@@ -36,6 +36,7 @@ class MovieGridAdapter(val onClickListener: OnClickListener) : ListAdapter<Movie
         holder.itemView.setOnClickListener {
             onClickListener.onClick(clickedMovie)
         }
+        holder.bind(clickedMovie)
     }
 
     class OnClickListener(val clickListener: (movie:Movie) -> Unit) {

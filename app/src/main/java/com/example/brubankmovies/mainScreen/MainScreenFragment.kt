@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 
 import com.example.brubankmovies.R
 import com.example.brubankmovies.databinding.FragmentMainScreenBinding
@@ -38,6 +39,7 @@ class MainScreenFragment : Fragment() {
         viewModel.navigateToSelectedMovie.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 //TODO add navigation to detail fragment
+                this.findNavController().navigate(MainScreenFragmentDirections.actionMainScreenFragmentToDetailScreenFragment(it))
                 viewModel.displayMovieDetailsComplete()
             }
         })

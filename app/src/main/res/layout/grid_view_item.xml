@@ -13,26 +13,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp">
+        android:layout_height="82dp"
+        android:background="#1b1b1b">
 
     <ImageView
         android:id="@+id/grid_view_item_movie_poster"
-        android:layout_width="match_parent"
+        android:layout_width="48dp"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
+        android:scaleType="center"
+        android:adjustViewBounds="false"
         android:padding="2dp"
         app:imageUrl="@{movie.posterUrl}"
-        tools:src="@tools:sample/backgrounds/scenic"/>
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
+        android:id="@+id/grid_view_item_movie_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/grid_view_item_movie_poster"
+        app:layout_constraintLeft_toRightOf="@id/grid_view_item_movie_poster"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
         app:movieTitle="@{movie.title}"
+        tools:text="Movie Title"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         />
+
+        <TextView
+            android:id="@+id/grid_view_item_movie_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/grid_view_item_movie_title"
+            app:layout_constraintStart_toStartOf="@id/grid_view_item_movie_title"
+            android:layout_marginTop="4dp"
+            app:movieGenre="@{movie.genreType}"
+            tools:text="Genre"
+            android:textSize="13sp"
+            android:textColor="#40FFFFFF"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

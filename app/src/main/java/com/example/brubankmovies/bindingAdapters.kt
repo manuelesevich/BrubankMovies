@@ -4,17 +4,24 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.brubankmovies.mainScreen.MovieApiStatus
 import com.example.brubankmovies.mainScreen.MovieGridAdapter
 import com.example.brubankmovies.network.Movie
+import kotlin.coroutines.coroutineContext
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Movie>?){
+    val divider = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+    divider.setDrawable(ContextCompat.getDrawable(recyclerView.context!!, R.drawable.divider_line)!!)
+    recyclerView.addItemDecoration(divider)
     val adapter = recyclerView.adapter as MovieGridAdapter
     adapter.submitList(data)
     Log.i("Binding Adapters", data?.size.toString())
@@ -35,11 +42,29 @@ fun bindImage(imageView: ImageView, imgUrl: String?){
     Log.i("Binding Adapters", imgUrl.toString())
 }
 
+@BindingAdapter("backdropUrl")
+fun bindBackdrop(imageView: ImageView, imgUrl: String?){
+    imgUrl?.let {
+        val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
+        Glide.with(imageView.context)
+            .load(imgUri)
+            .apply(RequestOptions()
+                .placeholder(R.drawable.loading_animation))
+            .error(R.drawable.ic_broken_image)
+            .into(imageView)
+    }
+    Log.i("Binding Adapters", imgUrl.toString())
+}
+
 @BindingAdapter("movieTitle")
 fun bindTitle(textView: TextView, movieTitle: String?){
     textView.text = movieTitle
 }
 
+@BindingAdapter("movieGenre")
+fun bindGenre(textView: TextView, movieGenre: String?){
+    textView.text = movieGenre
+}
 @BindingAdapter("movieApiStatus")
 fun bindStatus(statusImageView: ImageView, status: MovieApiStatus?){
     when(status) {
