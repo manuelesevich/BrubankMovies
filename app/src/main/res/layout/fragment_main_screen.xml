@@ -11,11 +11,14 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_screen_fragment_constrain_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.brubankmovies.MainActivity">
+        tools:context="com.example.brubankmovies.MainActivity"
+        android:background="#1b1b1b">
 
 
+        
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_screen_fragment_recyclerview"
             android:layout_width="0dp"

@@ -10,33 +10,29 @@
     </data>
 
     <ScrollView
+        android:id="@+id/fragment_detail_screen_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".DetailScreenFragment"
-        android:background="#802196F3"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_detail_screen_constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/fragment_detail_screen_movie_backdrop"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:backdropUrl="@{viewModel.selectedMovie.backdropUrl}"
-                tools:src="@tools:sample/backgrounds/scenic" />
+            android:background="#1b1b1b"
+            >
 
             <ImageView
                 android:id="@+id/fragment_detail_screen_movie_image"
-                android:layout_width="0dp"
-                android:layout_height="266dp"
+                android:layout_width="182dp"
+                android:layout_height="273dp"
                 android:scaleType="centerInside"
                 app:imageUrl="@{viewModel.selectedMovie.posterUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="43dp"
                 tools:src="@tools:sample/backgrounds/scenic"
                 />
 
@@ -44,25 +40,59 @@
                 android:id="@+id/fragment_detail_screen_movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@{viewModel.selectedMovie.title}"
-                android:textColor="#de000000"
-                android:textSize="39sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="15dp"
+                app:movieTitle="@{viewModel.selectedMovie.title}"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/fragment_detail_screen_movie_image"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_detail_screen_movie_image"
+                app:layout_constraintEnd_toEndOf="@id/fragment_detail_screen_movie_image"
+                android:textAlignment="center"
                 tools:text="Movie Title" />
+
+            <TextView
+                android:id="@+id/fragment_detail_screen_movie_realease_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_detail_screen_movie_title"
+                app:layout_constraintStart_toStartOf="@id/fragment_detail_screen_movie_title"
+                app:layout_constraintEnd_toEndOf="@id/fragment_detail_screen_movie_title"
+                android:layout_marginTop="2dp"
+                app:releaseYear="@{viewModel.selectedMovie.releaseDate}"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                tools:text="2011"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/fragment_detail_screen_subscribe_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/fragment_detail_screen_movie_realease_year"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="22dp"
+                tools:text="suscribirse"
+                android:textColor="#FFFFFF"
+                android:visibility="invisible"/>
 
             <TextView
                 android:id="@+id/fragment_detail_screen_movie_overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/fragment_detail_screen_subscribe_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="43dp"
+                android:layout_marginStart="37dp"
+                android:layout_marginEnd="37dp"
                 android:text="@{viewModel.selectedMovie.overview}"
-                android:textColor="#de000000"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_detail_screen_movie_title"
-                tools:text="overview" />
+                tools:text="overview"
+                android:textAlignment="center"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

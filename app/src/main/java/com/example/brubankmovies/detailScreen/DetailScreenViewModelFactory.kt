@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.brubankmovies.network.Movie
 
+/**
+ * Factory for Detail Screen ViewModel.
+ */
 class DetailScreenViewModelFactory(
     private val movie: Movie,
     private val application: Application

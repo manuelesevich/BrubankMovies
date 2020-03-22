@@ -13,13 +13,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="82dp"
+        android:layout_height="wrap_content"
         android:background="#1b1b1b">
 
     <ImageView
         android:id="@+id/grid_view_item_movie_poster"
         android:layout_width="48dp"
-        android:layout_height="match_parent"
+        android:layout_height="72dp"
         android:scaleType="center"
         android:adjustViewBounds="false"
         android:padding="2dp"
@@ -27,6 +27,7 @@
         tools:src="@tools:sample/backgrounds/scenic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"/>
@@ -53,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/grid_view_item_movie_title"
             app:layout_constraintStart_toStartOf="@id/grid_view_item_movie_title"
             android:layout_marginTop="4dp"
-            app:movieGenre="@{movie.genreType}"
+            app:movieGenre="@{movie.genreIds}"
             tools:text="Genre"
             android:textSize="13sp"
             android:textColor="#40FFFFFF"
